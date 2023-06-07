@@ -11,7 +11,7 @@ const Navber = () => {
     </>
     return (
         <>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-pink-200">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-secondary lg:hidden">
@@ -21,7 +21,7 @@ const Navber = () => {
                             {navLinkOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Learn Photography</a>
+                    <a className="btn btn-ghost font-bold normal-case text-xl text-pink-400">Learn Photography</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -29,7 +29,7 @@ const Navber = () => {
                     </ul>
                 </div>
                 <div className="navbar-end ">
-                    <button className="btn-secondary px-8 font-bold  rounded-lg"><Link>Login</Link></button>
+                    <button className="bg-pink-400 px-8 font-bold  rounded-lg"><Link className="text-white">Login</Link></button>
                 </div>
             </div>
         </>
