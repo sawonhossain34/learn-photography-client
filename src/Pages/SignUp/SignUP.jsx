@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const SignUP = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         console.log(data)
@@ -43,6 +44,7 @@ const SignUP = () => {
                             <input  className="btn btn-secondary" type="submit" value="submit" />
                         </div>
                     </form>
+                    <p className='text-center mb-4'>Already  <Link className="text-pink-500" to='/login'>have an account</Link></p>
                 </div>
             </div>
         </div>
