@@ -32,11 +32,11 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                            <div className="form-control mt-6">
-                                <input  className="btn btn-primary" type="submit" value="Login" />
+                            <div className="form-control mt-7">
+                                <input  className="btn btn-secondary outline-pink-500" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='text-center'>New here? <Link to='/signup'>create an account</Link></p>
+                        <p className='text-center mb-4'>New here? <Link className="text-pink-500" to='/signup'>create an account</Link></p>
                         
                     </div>
                 </div>
