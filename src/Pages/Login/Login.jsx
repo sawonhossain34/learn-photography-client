@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
+import useAuthProvider from "../../Hooks/useAuthProvider";
 
 const Login = () => {
+
+    const {signIn} = useAuthProvider();
+
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        signIn(email,password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
 
-        
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
