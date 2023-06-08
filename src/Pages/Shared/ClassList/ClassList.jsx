@@ -9,10 +9,10 @@ const ClassList = ({ cla }) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
-                <p>{price}</p>
-                <p>{available_seats}</p>
+                <p>price :${price}</p>
+                <p>Avaulable seats :{available_seats}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Enroll</button>
+                    <button className="btn btn-primary">select</button>
                 </div>
             </div>
         </div>

@@ -23,6 +23,8 @@ const PopularClasses = () => {
                     ></ClassList>)
                 }
             </div>
+            <button className="btn btn-secondary">All Classes</button>
+
 
         </div>
     );

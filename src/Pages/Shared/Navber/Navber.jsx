@@ -6,12 +6,13 @@ const Navber = () => {
     const navLinkOptions = <>
         <li><Link>Home</Link></li>
         <li><Link>Instructors</Link></li>
-        <li><Link>Classes</Link></li>
-        <li><Link>Dashboard</Link></li>
+        <li><Link to='/classes'>Classes</Link></li>
+        <li><Link to='/login'>Login</Link></li>
+        <li><Link to='/signup'>Signup</Link></li>
     </>
     return (
         <>
-            <div className="navbar fixed opacity-50 max-w-screen-xl m-auto z-10 bg-pink-200">
+            <div className="navbar fixed opacity-50 max-w-screen-xl mx-auto z-10 bg-pink-200">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-secondary lg:hidden">
