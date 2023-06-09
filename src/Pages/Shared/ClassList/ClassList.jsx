@@ -1,7 +1,13 @@
 
 
 const ClassList = ({ cla }) => {
-    const {image,name,price,available_seats,} = cla;
+    // console.log(classes);
+    const { image, name, price, available_seats, } = cla;
+
+
+    const handleAddClass = cla => {
+        console.log(cla);
+    }
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
@@ -12,7 +18,7 @@ const ClassList = ({ cla }) => {
                 <p>price :${price}</p>
                 <p>Avaulable seats :{available_seats}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">select</button>
+                    <button onClick={() => handleAddClass(cla)} className="btn btn-secondary">select</button>
                 </div>
             </div>
         </div>

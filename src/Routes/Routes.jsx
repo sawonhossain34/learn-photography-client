@@ -4,9 +4,10 @@ import {
 import Main from "./Main/Main";
 import Home from "../Pages/Home/Home/Home";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import PopularClasses from "../Pages/Home/PopularClasses/PopularClasses";
+// import PopularClasses from "../Pages/Home/PopularClasses/PopularClasses";
 import Login from "../Pages/Login/Login";
 import SignUP from "../Pages/SignUp/SignUP";
+import AllClass from "../Pages/Home/Home/AllClass/AllClass";
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +20,8 @@ export const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path: '/classes',
-        element: <PopularClasses></PopularClasses>
+        path: '/allclass',
+        element: <AllClass></AllClass>
       },
       {
         path: '/login',

@@ -4,7 +4,6 @@ import useAuthProvider from "../../../Hooks/useAuthProvider";
 
 const Navber = () => {
     const { user, logOut } = useAuthProvider();
-    console.log(user.photoURL);
 
     const handleLogout = () => {
         logOut()
@@ -15,7 +14,7 @@ const Navber = () => {
     const navLinkOptions = <>
         <li><Link>Home</Link></li>
         <li><Link>Instructors</Link></li>
-        <li><Link to='/classes'>Classes</Link></li>
+        <li><Link to='/allclass'>Classes</Link></li>
 
     </>
 

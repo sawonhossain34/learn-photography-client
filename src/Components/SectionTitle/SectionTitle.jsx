@@ -1,6 +1,6 @@
 
 
-const SectionTitle = ({heading,subHeading}) => {
+const SectionTitle = ({ heading, subHeading }) => {
     return (
         <div className="text-center mx-auto  w-3/12  my-6 ">
             <p className="text-pink-500 text-2xl font-bold my-2">{subHeading}</p>

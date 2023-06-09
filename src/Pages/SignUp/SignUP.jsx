@@ -5,32 +5,32 @@ import useAuthProvider from "../../Hooks/useAuthProvider";
 import Swal from "sweetalert2";
 
 const SignUP = () => {
-    const { register, handleSubmit, formState: { errors }, watch,reset } = useForm();
-    const {createUser,updateUserProfile} =useAuthProvider();
+    const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
+    const { createUser, updateUserProfile } = useAuthProvider();
     const navigate = useNavigate();
 
 
     const onSubmit = data => {
         console.log(data)
-        createUser(data.email , data.password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            updateUserProfile(data.name, data.photoURL)
-            .then(() => {
-                console.log('updated user profile');
-                reset();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'user updated sucessfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                  navigate('/');
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        console.log('updated user profile');
+                        reset();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'user updated sucessfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate('/');
+                    })
+                    .catch(error => console.log(error.message))
             })
-            .catch(error => console.log(error.message))
-        })
     };
     console.log(watch("password"));
     return (

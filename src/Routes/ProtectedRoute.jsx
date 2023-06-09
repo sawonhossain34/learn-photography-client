@@ -5,7 +5,7 @@ import { Navigate, useLocation } from "react-router-dom";
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = useAuthProvider();
     const location = useLocation();
-// TODO : secret route not set
+    // TODO : secret route not set
     if (loading) {
         return <span className="loading loading-bars loading-lg"></span>
     }
@@ -13,7 +13,7 @@ const ProtectedRoute = ({ children }) => {
         return children;
     }
 
-    return <Navigate to='/login' state={{from:location}} replace></Navigate>
+    return <Navigate to='/login' state={{ from: location }} replace></Navigate>
 };
 
 export default ProtectedRoute;
