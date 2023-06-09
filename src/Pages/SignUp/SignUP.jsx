@@ -1,12 +1,18 @@
+
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const SignUP = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+
+
+    const { register, handleSubmit, formState: { errors }, watch } = useForm();
+
+
 
     const onSubmit = data => {
         console.log(data)
     };
+    console.log(watch("password"));
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -14,34 +20,67 @@ const SignUP = () => {
                     <h1 className="text-5xl font-bold">Please Sign Up</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
-                <div className="card w-1/2 outline-pink-500 flex-shrink-0  max-w-sm shadow-2xl bg-base-100">
-                    <form  onSubmit={handleSubmit(onSubmit)} className="card-body">
+                <div className="card w-1/2 outline-pink-500 flex-shrink-0  max-w-sm shadow-2xl bg-base-100 mt-10">
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="name" name="name"  {...register("name")} className="input input-bordered" />
+                            <input type="text" placeholder="name" name="name"  {...register("name", { required: true })} className="input input-bordered" />
+                            {errors.name && <span className="text-yellow-500">Name is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" name="email" {...register("email")} className="input input-bordered" />
+                            <input type="email" placeholder="email" name="email" {...register("email", { required: true })} className="input input-bordered" />
+                            {errors.email && <span className="text-yellow-500">Email is required</span>}
                         </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" placeholder="photoURL" name="photo" {...register("photo", { required: 'Photo URL is required' })} className="input input-bordered" />
+                            {errors.photo && <span className="text-yellow-500">photoURL is required</span>}
+                        </div>
+                        {/* <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input type="password" placeholder="password" name="password" {...register("password", {
+                            required: true,
+                            })} className="input input-bordered" />
+                            {errors.password && <span className="text-yellow-500">Password is required</span>}
+                        </div> */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" name="password" {...register("password")} className="input input-bordered" />
+
+                            <input type="password" placeholder="password" name="password" {...register('password', {
+                                required: true, minLength: 6, pattern: {
+                                    value: /^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                                    message:
+                                        'Password must contain at least one capital letter and one special character',
+                                },
+                            })}
+                                className="input input-bordered" />
+                            {errors.password && <span className="text-yellow-500">Password is required , capital letter and special character</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
-                            <input type="text" placeholder="password" name="confirmPwd" {...register("confirmPwd")} className="input input-bordered" />
+                            <input type="password" placeholder="cpassword" name="cpassword" {...register('cpassword', {
+                                required: true,
+                                validate: value => value === watch('password')
+                            })}
+                                className="input input-bordered" />
+                            {errors.cpassword && <span className="text-yellow-500">Passwords do not match</span>}
+
                         </div>
                         <div className="form-control mt-6">
-                            <input  className="btn btn-secondary" type="submit" value="submit" />
+                            <input className="btn btn-secondary" type="submit" value="submit" />
                         </div>
                     </form>
                     <p className='text-center mb-4'>Already  <Link className="text-pink-500" to='/login'>have an account</Link></p>
