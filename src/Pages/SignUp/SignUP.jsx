@@ -1,16 +1,22 @@
 
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useAuthProvider from "../../Hooks/useAuthProvider";
 
 const SignUP = () => {
 
 
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
-
+    const {createUser} =useAuthProvider();
 
 
     const onSubmit = data => {
         console.log(data)
+        createUser(data.email , data.password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
     };
     console.log(watch("password"));
     return (
@@ -65,7 +71,7 @@ const SignUP = () => {
                                 },
                             })}
                                 className="input input-bordered" />
-                            {errors.password && <span className="text-yellow-500">Password is required , capital letter and special character</span>}
+                            {errors.password && <span className="text-yellow-500">Password is 6 character , capital letter and special character</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
