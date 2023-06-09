@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuthProvider from "../../Hooks/useAuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -16,6 +17,14 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'user logging sucessfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            
         })
 
 

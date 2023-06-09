@@ -1,14 +1,31 @@
 import { Link } from "react-router-dom";
+import useAuthProvider from "../../../Hooks/useAuthProvider";
 
 
 const Navber = () => {
+    const { user,logOut } = useAuthProvider();
+
+    const handleLogout = () => {
+        logOut()
+        .then (() => {})
+        .catch(error => console.log(error.massage))
+    }
 
     const navLinkOptions = <>
         <li><Link>Home</Link></li>
         <li><Link>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/signup'>Signup</Link></li>
+        {
+            user ? <>
+                <button onClick={handleLogout} className="btn btn-active btn-secondary">Logout</button>
+
+            </> :
+                <>
+                    <li><Link to='/login'>Login</Link></li>
+                </>
+
+        }
+
     </>
     return (
         <>
@@ -30,6 +47,9 @@ const Navber = () => {
                     </ul>
                 </div>
                 <div className="navbar-end ">
+                    <p>
+                        {user && user?.displayName}
+                    </p>
                     <button className="bg-pink-400 px-8 font-bold  rounded-lg"><Link className="text-white">Login</Link></button>
                 </div>
             </div>
