@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuthProvider from "../../Hooks/useAuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-
     const {signIn} = useAuthProvider();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const  from = location.state?.from?.pathname || "/";
 
     const handleSignin = (event) => {
         event.preventDefault();
@@ -24,6 +27,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
+              navigate(from, { replace: true });
             
         })
 

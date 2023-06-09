@@ -3,30 +3,22 @@ import useAuthProvider from "../../../Hooks/useAuthProvider";
 
 
 const Navber = () => {
-    const { user,logOut } = useAuthProvider();
+    const { user, logOut } = useAuthProvider();
+    console.log(user.photoURL);
 
     const handleLogout = () => {
         logOut()
-        .then (() => {})
-        .catch(error => console.log(error.massage))
+            .then(() => { })
+            .catch(error => console.log(error.massage))
     }
 
     const navLinkOptions = <>
         <li><Link>Home</Link></li>
         <li><Link>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
-        {
-            user ? <>
-                <button onClick={handleLogout} className="btn btn-active btn-secondary">Logout</button>
-
-            </> :
-                <>
-                    <li><Link to='/login'>Login</Link></li>
-                </>
-
-        }
 
     </>
+
     return (
         <>
             <div className="navbar fixed opacity-50 max-w-screen-xl mx-auto z-10 bg-pink-200">
@@ -47,10 +39,21 @@ const Navber = () => {
                     </ul>
                 </div>
                 <div className="navbar-end ">
-                    <p>
-                        {user && user?.displayName}
-                    </p>
-                    <button className="bg-pink-400 px-8 font-bold  rounded-lg"><Link className="text-white">Login</Link></button>
+                    {
+                        user ? <>
+                            {/* <span>{user?.displayName}</span> */}
+                            <div className="avatar">
+                                <div className="w-10 rounded-xl">
+                                    <img src={user?.photoURL} />
+                                </div>
+                            </div>
+                            <button onClick={handleLogout} className="btn btn-active btn-secondary">Logout</button>
+                        </> :
+                            <>
+                                <li><Link to='/login'>Login</Link></li>
+                            </>
+                    }
+
                 </div>
             </div>
         </>
