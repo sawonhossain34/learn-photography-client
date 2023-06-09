@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuthProvider from "../../../Hooks/useAuthProvider";
+import { FaBook } from "react-icons/fa";
 
 
 const Navber = () => {
@@ -15,6 +16,14 @@ const Navber = () => {
         <li><Link>Home</Link></li>
         <li><Link>Instructors</Link></li>
         <li><Link to='/allclass'>Classes</Link></li>
+        <li>
+            <Link to='/'>
+                <button className="btn">
+                    <FaBook></FaBook>
+                    <div className="badge badge-secondary">+0</div>
+                </button>
+            </Link>
+        </li>
 
     </>
 
