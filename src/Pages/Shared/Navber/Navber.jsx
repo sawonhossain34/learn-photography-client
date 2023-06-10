@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import useAuthProvider from "../../../Hooks/useAuthProvider";
-import { FaBook } from "react-icons/fa";
+// import { FaBook } from "react-icons/fa";
+import useClass from "../../../Hooks/useClass";
 
 
 const Navber = () => {
     const { user, logOut } = useAuthProvider();
+    const [selected] = useClass();
+    console.log(selected);
 
     const handleLogout = () => {
         logOut()
@@ -16,15 +19,16 @@ const Navber = () => {
         <li><Link>Home</Link></li>
         <li><Link to='/allInstructor'>Instructor</Link></li>
         <li><Link to='/allclass'>Classes</Link></li>
+        <li><Link to='dashboard/studentclass'>Dashboard</Link></li>
         
-        <li>
+        {/* <li>
             <Link to='/'>
                 <button className="btn">
                     <FaBook></FaBook>
-                    <div className="badge badge-secondary">+0</div>
+                    <div className="badge badge-secondary">{selected?.length || 0}</div>
                 </button>
             </Link>
-        </li>
+        </li> */}
 
     </>
 

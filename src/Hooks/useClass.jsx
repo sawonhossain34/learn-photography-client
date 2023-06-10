@@ -4,15 +4,17 @@ const useClass = () => {
 
     const { user } = useAuthProvider();
 
-    const { isLoading, refetch ,data: cart = [] } = useQuery({
+    const { refetch ,data: selected = [] } = useQuery({
         queryKey: ['selected', user?.email],
         queryFn: async () =>{
             const respons = await fetch(`http://localhost:5000/selected?email=${user?.email}`)
+
+            
             return respons.json();
         }
     })
 
-    return [cart, isLoading, refetch]
+    return [selected, refetch];
 }
 
 

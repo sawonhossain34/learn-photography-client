@@ -1,20 +1,15 @@
-import { useEffect, useState } from "react";
-
+import { useQuery } from "@tanstack/react-query";
 
 const useClasses = () => {
-    const [classes, setClasses] = useState([]);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        fetch('http://localhost:5000/class')
-            .then(res => res.json())
-            .then(data => {
-                // setClasses(data);
-                const seats = data?.sort((a, b) => b.available_seats - a.available_seats);
-                setClasses(seats);
-                setLoading(false);
-            })
-    }, [])
-    return [classes, loading];
+    
+    const { data: clas = [], isLoading: loading, refetch } = useQuery({
+        queryKey: ['class'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/class');
+            return res.json();
+        }
+    })
+    return [clas, loading, refetch];
 };
 
 export default useClasses;

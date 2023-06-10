@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAuthProvider from "../../Hooks/useAuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import useClass from "../../Hooks/useClass";
 
 
 const ClassList = ({ cla }) => {
@@ -9,12 +10,13 @@ const ClassList = ({ cla }) => {
     const { user } = useAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
+    const [, refetch] = useClass();
 
 
     const handleAddClass = (cla) => {
         console.log(cla);
         if (user && user.email) {
-            const classList = {classId: _id,name,image,price,email:user.email}
+            const classList = {classId: _id,name,image,available_seats,price,email:user.email}
             fetch('http://localhost:5000/selected',{
                 method:"POST",
                 headers:{
@@ -25,6 +27,7 @@ const ClassList = ({ cla }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
+                        refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',

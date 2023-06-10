@@ -1,13 +1,16 @@
 import {
   createBrowserRouter,
 } from "react-router-dom";
-import Main from "./Main/Main";
+// import Main from "./Main/Main";
 import Home from "../Pages/Home/Home/Home";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 // import PopularClasses from "../Pages/Home/PopularClasses/PopularClasses";
 import Login from "../Pages/Login/Login";
 import SignUP from "../Pages/SignUp/SignUP";
 import AllClass from "../Pages/Home/Home/AllClass/AllClass";
+import Main from "../Main/Main";
+import Dashboard from "../Main/Dashboard";
+import StudentClass from "../Pages/Dashboard/StudentClass/StudentClass";
 
 export const router = createBrowserRouter([
   {
@@ -33,4 +36,14 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '/dashboard',
+    element:<Dashboard></Dashboard>,
+    children:[
+      {
+        path:'studentclass',
+        element:<StudentClass></StudentClass>
+      }
+    ]
+  }
 ]);
