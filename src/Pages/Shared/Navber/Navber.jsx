@@ -14,8 +14,9 @@ const Navber = () => {
 
     const navLinkOptions = <>
         <li><Link>Home</Link></li>
-        <li><Link>Instructors</Link></li>
+        <li><Link to='/allInstructor'>Instructor</Link></li>
         <li><Link to='/allclass'>Classes</Link></li>
+        
         <li>
             <Link to='/'>
                 <button className="btn">
