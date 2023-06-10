@@ -1,5 +1,5 @@
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-import ClassList from "../../Shared/ClassList/ClassList";
+import ClassList from "../../../Components/ClassList/ClassList";
 import useClasses from "../../../Hooks/useClasses";
 import { Link } from "react-router-dom";
 

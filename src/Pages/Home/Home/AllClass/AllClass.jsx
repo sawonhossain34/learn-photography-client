@@ -1,6 +1,6 @@
 import SectionTitle from "../../../../Components/SectionTitle/SectionTitle";
 import useClasses from "../../../../Hooks/useClasses";
-import ClassList from "../../../Shared/ClassList/ClassList";
+import ClassList from "../../../../Components/ClassList/ClassList";
 
 
 const AllClass = () => {
