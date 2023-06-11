@@ -3,13 +3,18 @@ import useAuthProvider from './useAuthProvider';
 const useClass = () => {
 
     const { user } = useAuthProvider();
+    const token = localStorage.getItem('access-token');
 
-    const { refetch ,data: selected = [] } = useQuery({
+    const { refetch, data: selected = [] } = useQuery({
         queryKey: ['selected', user?.email],
-        queryFn: async () =>{
-            const respons = await fetch(`http://localhost:5000/selected?email=${user?.email}`)
+        queryFn: async () => {
+            const respons = await fetch(`http://localhost:5000/selected?email=${user?.email}`, {
+                headers: {
+                    authorization: `bearer ${token}`
+                }
+            })
 
-            
+
             return respons.json();
         }
     })
