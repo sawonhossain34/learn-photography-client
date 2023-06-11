@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuthProvider from "../../Hooks/useAuthProvider";
 import Swal from "sweetalert2";
+import GoogleLogin from "../../Components/GoogleLogin/GoogleLogin";
 
 const SignUP = () => {
     const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
@@ -107,6 +108,7 @@ const SignUP = () => {
                         </div>
                     </form>
                     <p className='text-center mb-4'>Already  <Link className="text-pink-500" to='/login'>have an account</Link></p>
+                    <GoogleLogin></GoogleLogin>
                 </div>
             </div>
         </div>

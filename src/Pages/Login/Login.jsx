@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuthProvider from "../../Hooks/useAuthProvider";
 import Swal from "sweetalert2";
+import GoogleLogin from "../../Components/GoogleLogin/GoogleLogin";
 
 const Login = () => {
     const { signIn } = useAuthProvider();
@@ -62,7 +63,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='text-center mb-4'>New here? <Link className="text-pink-500" to='/signup'>create an account</Link></p>
-
+                    <GoogleLogin></GoogleLogin>
                 </div>
             </div>
         </div>
