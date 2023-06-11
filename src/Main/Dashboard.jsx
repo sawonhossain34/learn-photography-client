@@ -1,14 +1,14 @@
 import { FaCalendar, FaClipboardList, FaHome, FaMoneyBill } from "react-icons/fa";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 
 
 const Dashboard = () => {
     const studentDash = <>
-        <li><Link><FaHome></FaHome>Student Home</Link></li>
-        <li><Link><FaClipboardList></FaClipboardList> Class</Link></li>
-        <li><Link><FaMoneyBill></FaMoneyBill>Payment History</Link></li>
-        <li><Link><FaCalendar></FaCalendar>Reservations</Link></li>
+        <li><NavLink to='dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
+        <li><NavLink to='dashboard/myclass'><FaClipboardList></FaClipboardList> My Class</NavLink></li>
+        <li><NavLink to='dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
+        <li><NavLink to='dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
     </>
     return (
         <div className="drawer">
@@ -43,11 +43,9 @@ const Dashboard = () => {
                     {studentDash}
                     <div className="divider"></div>
 
-                    {/* <li><Link><FaHome></FaHome>Student Home</Link></li>
-                    <li><a>Sidebar Item 2</a></li> */}
-
                     <li><Link to='/'><FaHome></FaHome>Home</Link></li>
-                    <li><Link to='/allclass'><FaClipboardList></FaClipboardList>Classes</Link></li>
+                    <li><Link to='/'>Instructor</Link></li>
+                    <li><Link to='/allclass'><FaClipboardList></FaClipboardList>classes</Link></li>
 
 
                 </ul>
