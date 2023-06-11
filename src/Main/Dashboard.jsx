@@ -26,13 +26,12 @@ const Dashboard = () => {
                     <div className="flex-none hidden lg:block">
                         <ul className="menu menu-horizontal">
                             {/* Navbar menu content here */}
-
+                            <li><Link to='/'><FaHome></FaHome>Home</Link></li>
                             {studentDash}
                         </ul>
                     </div>
                 </div>
                 {/* Page content here */}
-                Content
                 <Outlet></Outlet>
                 
             </div>

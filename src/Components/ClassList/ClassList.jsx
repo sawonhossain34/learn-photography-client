@@ -5,8 +5,8 @@ import useClass from "../../Hooks/useClass";
 
 
 const ClassList = ({ cla }) => {
-    // console.log(classes);
-    const {_id, image, name, price, available_seats, } = cla;
+    console.log(cla);
+    const {_id, image, name, price, available_seats,instructor_name } = cla;
     const { user } = useAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
@@ -16,7 +16,7 @@ const ClassList = ({ cla }) => {
     const handleAddClass = (cla) => {
         console.log(cla);
         if (user && user.email) {
-            const classList = {classId: _id,name,image,available_seats,price,email:user.email}
+            const classList = {classId: _id,name,image,available_seats,price,email:user.email,instructor_name}
             fetch('http://localhost:5000/selected',{
                 method:"POST",
                 headers:{
