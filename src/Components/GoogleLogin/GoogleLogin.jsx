@@ -6,7 +6,7 @@ const GoogleLogin = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const from = location?.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || "/";
 
     const handleGoogleSignUp = () => {
         googleSignIn()
@@ -18,15 +18,13 @@ const GoogleLogin = () => {
                 fetch('http://localhost:5000/users', {
                     method: "POST",
                     headers: {
-                        "content-type": "application/json"
+                        "content-type":"application/json"
                     },
-                    body: JSON.stringify(dbUserSave)
+                    body:JSON.stringify(dbUserSave)
                 })
                     .then(res => res.json())
-                    .then(data => {
-                        if (data.insertedId) {
+                    .then(() => {
                             navigate(from, { replace: true });
-                        }
                     })
 
 

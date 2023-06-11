@@ -1,20 +1,25 @@
 import { FaCalendar, FaClipboardList, FaHome, FaMoneyBill } from "react-icons/fa";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 
 const Dashboard = () => {
-    const studentDash = <>
-        <li><NavLink to='dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
-        <li><NavLink to='dashboard/myclass'><FaClipboardList></FaClipboardList> My Class</NavLink></li>
-        <li><NavLink to='dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
-        <li><NavLink to='dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
-    </>
+
+    //  TODO:load data from the server
+    const isAdmin = true;
+    // const studentDash = <>
+    //     <li><NavLink to='dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
+    //     <li><NavLink to='dashboard/myclass'><FaClipboardList></FaClipboardList> My Class</NavLink></li>
+    //     <li><NavLink to='dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
+    //     <li><NavLink to='dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
+    // </>
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
+
 
                 <div className="w-full navbar bg-pink-200">
                     <div className="flex-none lg:hidden">
@@ -26,25 +31,59 @@ const Dashboard = () => {
                     <div className="flex-none hidden lg:block">
                         <ul className="menu menu-horizontal">
                             {/* Navbar menu content here */}
-                            <li><Link to='/'><FaHome></FaHome>Home</Link></li>
-                            {studentDash}
+                            <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
+                            <li><NavLink to='/'>Instructor</NavLink></li>
+                            <li><NavLink to='/allclass'><FaClipboardList></FaClipboardList>classes</NavLink></li>
+                            <div className="divider divider-horizontal"></div>
+                            {
+                                isAdmin ?
+                                    <>
+                                        <li><NavLink to='/dashboard/home'><FaHome></FaHome>Admin Home</NavLink></li>
+                                        <li><NavLink to='/dashboard/myclass'><FaClipboardList></FaClipboardList> Manage Class</NavLink></li>
+                                        <li><NavLink to='/dashboard/history'><FaMoneyBill></FaMoneyBill>Add Class</NavLink></li>
+                                        <li><NavLink to='/dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
+                                        <li><NavLink to='/dashboard/allusers'><FaCalendar></FaCalendar>All Users</NavLink></li>
+                                    </>
+                                    :
+                                    <>
+                                        <li><NavLink to='/dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
+                                        <li><NavLink to='/dashboard/myclass'><FaClipboardList></FaClipboardList> My Class</NavLink></li>
+                                        <li><NavLink to='/dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
+                                        <li><NavLink to='/dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
+                                    </>
+                            }
                         </ul>
                     </div>
                 </div>
                 {/* Page content here */}
                 <Outlet></Outlet>
-                
+
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-pink-200">
                     {/* Sidebar content here */}
-                    {studentDash}
-                    <div className="divider"></div>
+                    {
+                        isAdmin ?
+                            <>
+                                <li><NavLink to='dashboard/home'><FaHome></FaHome>Admin Home</NavLink></li>
+                                <li><NavLink to='dashboard/myclass'><FaClipboardList></FaClipboardList> Manage Class</NavLink></li>
+                                <li><NavLink to='dashboard/history'><FaMoneyBill></FaMoneyBill>Add Class</NavLink></li>
+                                <li><NavLink to='dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
+                                <li><NavLink to='/dashboard/allusers'><FaCalendar></FaCalendar>All Users</NavLink></li>
+                            </> :
+                            <>
+                                <li><NavLink to='dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
+                                <li><NavLink to='dashboard/myclass'><FaClipboardList></FaClipboardList> My Class</NavLink></li>
+                                <li><NavLink to='dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
+                                <li><NavLink to='dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
+                            </>
+                    }
 
-                    <li><Link to='/'><FaHome></FaHome>Home</Link></li>
-                    <li><Link to='/'>Instructor</Link></li>
-                    <li><Link to='/allclass'><FaClipboardList></FaClipboardList>classes</Link></li>
+                    <div className="divider"></div>
+                    <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
+                    <li><NavLink to='/'>Instructor</NavLink></li>
+                    <li><NavLink to='/allclass'><FaClipboardList></FaClipboardList>classes</NavLink></li>
 
 
                 </ul>

@@ -12,6 +12,7 @@ import Main from "../Main/Main";
 import Dashboard from "../Main/Dashboard";
 import StudentClass from "../Pages/Dashboard/StudentClass/StudentClass";
 import ProtectedRoute from "./ProtectedRoute";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path:'studentclass',
         element:<StudentClass></StudentClass>
+      },
+      {
+        path:'allusers',
+        element:<AllUsers></AllUsers>
       }
     ]
   }

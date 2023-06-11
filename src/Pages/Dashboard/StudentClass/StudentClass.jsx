@@ -46,7 +46,7 @@ const StudentClass = () => {
                 <h2 className="text-3xl">Total class : {selected.length}</h2>
                 <h2 className="text-3xl">Total price : {total}</h2>
 
-                <Link to='/dashboard/payment'><button className="btn btn-secondary">PAY</button></Link>
+                {/* <Link to='/dashboard/payment'><button className="btn btn-secondary">PAY</button></Link> */}
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -58,6 +58,7 @@ const StudentClass = () => {
                             <th>Name</th>
                             <th>Price </th>
                             <th>Options</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,6 +88,9 @@ const StudentClass = () => {
 
                                     <button className="btn btn-outline btn-success  ml-5">Enroll</button>
 
+                                </td>
+                                <td>
+                                <Link to='/dashboard/payment'><button className="btn btn-secondary">PAY</button></Link> 
                                 </td>
                             </tr>)
                         }
