@@ -36,14 +36,14 @@ const Dashboard = () => {
                                     <>
                                         <li><NavLink to='/dashboard/home'><FaHome></FaHome>Admin Home</NavLink></li>
                                         <li><NavLink to='/dashboard/myclass'><FaClipboardList></FaClipboardList> Manage Class</NavLink></li>
-                                        <li><NavLink to='/dashboard/history'><FaMoneyBill></FaMoneyBill>Add Class</NavLink></li>
-                                        <li><NavLink to='/dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
+                                        <li><NavLink to='/dashboard/addclass'><FaMoneyBill></FaMoneyBill>Add Class</NavLink></li>
+                                        <li><NavLink to='/dashboard/studentclass'><FaClipboardList></FaClipboardList> student Class</NavLink></li>
                                         <li><NavLink to='/dashboard/allusers'><FaCalendar></FaCalendar>All Users</NavLink></li>
                                     </>
                                     :
                                     <>
                                         <li><NavLink to='/dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
-                                        <li><NavLink to='/dashboard/myclass'><FaClipboardList></FaClipboardList> My Class</NavLink></li>
+                                        <li><NavLink to='/dashboard/studentclass'><FaClipboardList></FaClipboardList> student Class</NavLink></li>
                                         <li><NavLink to='/dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
                                         <li><NavLink to='/dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
                                     </>
