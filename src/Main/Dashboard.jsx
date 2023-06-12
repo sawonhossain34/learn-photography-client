@@ -1,19 +1,15 @@
 import { FaCalendar, FaClipboardList, FaHome, FaMoneyBill } from "react-icons/fa";
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import UseAdmin from "../Hooks/UseAdmin";
 
 
 
 const Dashboard = () => {
 
-    //  TODO:load data from the server
-    const isAdmin = true;
-    // const studentDash = <>
-    //     <li><NavLink to='dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
-    //     <li><NavLink to='dashboard/myclass'><FaClipboardList></FaClipboardList> My Class</NavLink></li>
-    //     <li><NavLink to='dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
-    //     <li><NavLink to='dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
-    // </>
+
+    const [isAdmin] = UseAdmin();
+    
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
