@@ -1,9 +1,9 @@
 import useAuthProvider from "../Hooks/useAuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 
-
+// TODO: loading set useAuthProvider
 const ProtectedRoute = ({ children }) => {
-    const { user, loading } = useAuthProvider();
+    const { user,loading} = useAuthProvider();
     const location = useLocation();
     // TODO : secret route not set
     if (loading) {
@@ -12,6 +12,7 @@ const ProtectedRoute = ({ children }) => {
     if (user) {
         return children;
     }
+
 
     return <Navigate to='/login' state={{ from: location }} replace></Navigate>
 };

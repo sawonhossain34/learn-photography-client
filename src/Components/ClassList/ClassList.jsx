@@ -5,7 +5,6 @@ import useClass from "../../Hooks/useClass";
 
 
 const ClassList = ({ cla }) => {
-    console.log(cla);
     const {_id, image, name, price, available_seats,instructor_name } = cla;
     const { user } = useAuthProvider();
     const navigate = useNavigate();

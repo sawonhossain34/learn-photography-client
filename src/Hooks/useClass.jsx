@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import useAuthProvider from './useAuthProvider';
+// import useAxiosSecure from './UseAxiosSecure';
+
 const useClass = () => {
 
-    const { user } = useAuthProvider();
+    const { user, } = useAuthProvider();
     const token = localStorage.getItem('access-token');
 
     const { refetch, data: selected = [] } = useQuery({
@@ -13,10 +15,9 @@ const useClass = () => {
                     authorization: `bearer ${token}`
                 }
             })
-
-
             return respons.json();
-        }
+
+        },
     })
 
     return [selected, refetch];

@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import useAuthProvider from "../../../Hooks/useAuthProvider";
 // import { FaBook } from "react-icons/fa";
-import useClass from "../../../Hooks/useClass";
+// import useClass from "../../../Hooks/useClass";
 
 
 const Navber = () => {
     const { user, logOut } = useAuthProvider();
-    const [selected] = useClass();
-    console.log(selected);
+    // const [selected] = useClass();
 
     const handleLogout = () => {
         logOut()

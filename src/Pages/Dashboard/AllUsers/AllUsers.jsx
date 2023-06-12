@@ -27,6 +27,7 @@ const AllUsers = () => {
         })
     }
     const handleMakeInstructor = (user) => {
+        console.log(user)
         fetch (`http://localhost:5000/users/instructor/${user._id}`,{
             method:"PATCH"
         })
