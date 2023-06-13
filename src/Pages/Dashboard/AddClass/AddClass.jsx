@@ -1,11 +1,45 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../../Hooks/UseAxiosSecure";
+import Swal from "sweetalert2";
 
-
+const image_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const AddClass = () => {
-    const { register, handleSubmit } = useForm();
+    const [axiosSecure] = useAxiosSecure();
+    const { register, handleSubmit,reset } = useForm();
+    const image_hosting_url =`https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
     const onSubmit = (data) => {
-        console.log(data);
+        const formData = new FormData();
+        formData.append('image',data.image[0])
+
+        fetch(image_hosting_url,{
+            method:'POST',
+            body:formData
+        })
+        .then(res => res.json())
+        .then(imgRespons => {
+            if(imgRespons.success){
+                const image = imgRespons.data.display_url;
+                const{name,instructor_name,available_seats,instructor_email,price} = data;
+                const newClass = {name,instructor_name,available_seats,instructor_email,price:parseFloat(price),image:image};
+                console.log(newClass);
+                axiosSecure.post('/class',newClass)
+                .then(data => {
+                    console.log('after add new class',data.data);
+                    if(data.data.insertedId){
+                        reset();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'class added Successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                    }
+                })
+
+            }
+        })
       };
     return (
         <div className="w-full mx-8">
@@ -22,13 +56,13 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Class Name*</span>
                         </label>
-                        <input type="text" placeholder="Class Name"  {...register("class", { required: true, maxLength: 80 })} className="input input-bordered w-full " />
+                        <input type="text" placeholder="Class Name"  {...register("name", { required: true, maxLength: 80 })} className="input input-bordered w-full " />
                     </div>
                     <div className="form-control w-full my-3 ">
                         <label className="label">
                             <span className="label-text font-semibold">Instructor Name*</span>
                         </label>
-                        <input type="text" placeholder="Instructor Name"  {...register("instructor", { required: true, maxLength: 80 })} className="input input-bordered w-full " />
+                        <input type="text" placeholder="Instructor Name"  {...register("instructor_name", { required: true, maxLength: 80 })} className="input input-bordered w-full " />
                     </div>
                 </div>
                 <div className="form-control w-full my-3 ">
@@ -48,7 +82,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Available Seats*</span>
                         </label>
-                        <input type="number" placeholder="Available Seats"  {...register("seats", { required: true, maxLength: 80 })} className="input input-bordered w-full " />
+                        <input type="number" placeholder="Available Seats"  {...register("available_seats", { required: true, maxLength: 80 })} className="input input-bordered w-full " />
                     </div>
                 </div>
 
