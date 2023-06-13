@@ -36,7 +36,7 @@ const Navber = () => {
 
     return (
         <>
-            <div className="navbar fixed opacity-50 max-w-screen-xl mx-auto z-10 bg-pink-200">
+            <div className="navbar  opacity-50 max-w-screen-xl mx-auto z-10 bg-pink-200">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-secondary lg:hidden">

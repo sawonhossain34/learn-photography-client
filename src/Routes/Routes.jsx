@@ -15,6 +15,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import AdminRoute from "./AdminRoute";
+import PopularInstructor from "../Pages/Home/Home/AllClass/PopularInstructor/PopularInstructor";
 
 
 export const router = createBrowserRouter([
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: '/allclass',
         element: <AllClass></AllClass>
+      },
+      {
+        path:'/allinstructor',
+        element:<PopularInstructor></PopularInstructor>
       },
       {
         path: '/login',

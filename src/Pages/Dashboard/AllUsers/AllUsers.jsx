@@ -48,7 +48,35 @@ const AllUsers = () => {
         })
     }
     const handleDelete = (user) => {
-        console.log(user)
+        console.log(user);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+           showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        })
+           .then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`http://localhost:5000/users/${user._id}`, {
+                        method: 'DELETE'
+                   })
+                       .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.deletedCount > 0) {
+                                refetch();
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                )
+                            }
+                        })
+                }
+            })
     }
     return (
         <div>
@@ -79,7 +107,7 @@ const AllUsers = () => {
                                 <FaCheck></FaCheck><button>instructor</button>
                                 </> : <button onClick={() => handleMakeInstructor(user)} className="btn btn-secondary ml-4">Make Instructor</button>}
                                 </td>
-                                <td><button onClick={() => handleDelete()} className="btn btn-secondary">Delete</button></td>
+                                <td><button onClick={() => handleDelete(user)} className="btn btn-secondary">Delete</button></td>
                             </tr> )
                         }
                         
