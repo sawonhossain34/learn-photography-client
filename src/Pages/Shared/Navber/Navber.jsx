@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 import useAuthProvider from "../../../Hooks/useAuthProvider";
-// import { FaBook } from "react-icons/fa";
-// import useClass from "../../../Hooks/useClass";
-
 
 const Navber = () => {
     const { user, logOut } = useAuthProvider();
-    // const [selected] = useClass();
-
     const handleLogout = () => {
         logOut()
             .then(() => { })
@@ -21,16 +16,6 @@ const Navber = () => {
         {
             user && <li><Link to='/dashboard/studentclass'>Dashboard</Link></li>
         }
-        
-        
-        {/* <li>
-            <Link to='/'>
-                <button className="btn">
-                    <FaBook></FaBook>
-                    <div className="badge badge-secondary">{selected?.length || 0}</div>
-                </button>
-            </Link>
-        </li> */}
 
     </>
 
@@ -56,7 +41,6 @@ const Navber = () => {
                 <div className="navbar-end ">
                     {
                         user ? <>
-                            {/* <span>{user?.displayName}</span> */}
                             <div className="avatar">
                                 <div className="w-10 rounded-xl">
                                     <img src={user?.photoURL} />
@@ -65,7 +49,7 @@ const Navber = () => {
                             <button onClick={handleLogout} className="btn btn-active btn-secondary">Logout</button>
                         </> :
                             <>
-                                <li><Link to='/login'>Login</Link></li>
+                                <button className=" btn btn-secondary"><li><Link to='/login'>Login</Link></li></button>
                             </>
                     }
 

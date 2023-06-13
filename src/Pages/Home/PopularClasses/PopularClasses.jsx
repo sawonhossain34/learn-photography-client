@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 
 const PopularClasses = () => {
     const [classes] = useClasses();
-    console.log(classes);
-    // const seats = classes?.sort((a, b) => b.available_seats - a.available_seats);
 
     return (
         <div className="my-10">

@@ -54,9 +54,6 @@ const InstructorList = ({instructor}) => {
     }
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
-            {/* <figure className="px-10 pt-10">
-                <img src={image} alt="Shoes" className="rounded-xl" />
-            </figure> */}
             <div className="card-body ">
                 <h2 className="card-title text-pink-500">{name}</h2>
                 <p><span className="text-pink-500">price</span> :${price}</p>

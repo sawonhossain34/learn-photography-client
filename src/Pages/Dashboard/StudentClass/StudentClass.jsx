@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 
  const StudentClass = () => {
      const [selected,refetch] = useClass();
-     console.log(selected);
      const total = selected?.reduce((acc, item) => acc + item.price, 0);
 
      const handleDelete = (id) => {

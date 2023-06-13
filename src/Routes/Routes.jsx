@@ -33,8 +33,8 @@ export const router = createBrowserRouter([
         element: <AllClass></AllClass>
       },
       {
-        path:'/allinstructor',
-        element:<PopularInstructor></PopularInstructor>
+        path: '/allinstructor',
+        element: <PopularInstructor></PopularInstructor>
       },
       {
         path: '/login',
@@ -48,19 +48,19 @@ export const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element:<ProtectedRoute><Dashboard></Dashboard></ProtectedRoute>,
-    children:[
+    element: <ProtectedRoute><Dashboard></Dashboard></ProtectedRoute>,
+    children: [
       {
-        path:'studentclass',
-        element:<StudentClass></StudentClass>
+        path: 'studentclass',
+        element: <StudentClass></StudentClass>
       },
       {
-        path:'allusers',
-        element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+        path: 'allusers',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
-        path:'addclass',
-        element:<AdminRoute><AddClass></AddClass></AdminRoute>
+        path: 'addclass',
+        element: <AdminRoute><AddClass></AddClass></AdminRoute>
       }
     ]
   }

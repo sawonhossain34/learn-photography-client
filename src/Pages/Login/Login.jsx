@@ -31,8 +31,6 @@ const Login = () => {
                 navigate(from, { replace: true });
 
             })
-
-
     }
     return (
         <div className="hero min-h-screen bg-base-200">

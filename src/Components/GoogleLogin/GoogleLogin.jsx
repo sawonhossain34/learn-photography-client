@@ -26,9 +26,6 @@ const GoogleLogin = () => {
                     .then(() => {
                             navigate(from, { replace: true });
                     })
-
-
-
             })
     }
 

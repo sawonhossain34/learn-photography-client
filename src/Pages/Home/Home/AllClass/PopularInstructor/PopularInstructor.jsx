@@ -6,7 +6,6 @@ import InstructorList from "../../../../../Components/InstructorList/InstructorL
 
 const PopularInstructor = () => {
     const [classes] = useClasses();
-    console.log(classes);
     return (
         <div className="my-10">
 

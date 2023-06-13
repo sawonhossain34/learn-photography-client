@@ -5,10 +5,8 @@ import ClassList from "../../../../Components/ClassList/ClassList";
 
 const AllClass = () => {
     const [classes] = useClasses();
-    console.log(classes);
     return (
         <div className="my-10">
-
             <SectionTitle
                 subHeading={"our"}
                 heading={"Popular Classes"}

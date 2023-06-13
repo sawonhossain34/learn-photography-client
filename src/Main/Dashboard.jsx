@@ -3,13 +3,11 @@ import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import UseAdmin from "../Hooks/UseAdmin";
 
-
-
 const Dashboard = () => {
 
 
     const [isAdmin] = UseAdmin();
-    
+
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -45,7 +43,7 @@ const Dashboard = () => {
                                         <li><NavLink to='/dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
                                         <li><NavLink to='/dashboard/studentclass'><FaClipboardList></FaClipboardList> student Class</NavLink></li>
                                         <li><NavLink to='/dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
-                                        <li><NavLink to='/dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
+
                                     </>
                             }
                         </ul>
@@ -72,7 +70,6 @@ const Dashboard = () => {
                                 <li><NavLink to='dashboard/home'><FaHome></FaHome>Student Home</NavLink></li>
                                 <li><NavLink to='dashboard/myclass'><FaClipboardList></FaClipboardList> My Class</NavLink></li>
                                 <li><NavLink to='dashboard/history'><FaMoneyBill></FaMoneyBill>Payment History</NavLink></li>
-                                <li><NavLink to='dashboard/reservations'><FaCalendar></FaCalendar>Reservations</NavLink></li>
                             </>
                     }
 
@@ -80,8 +77,6 @@ const Dashboard = () => {
                     <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
                     <li><NavLink to='/'>Instructor</NavLink></li>
                     <li><NavLink to='/allclass'><FaClipboardList></FaClipboardList>classes</NavLink></li>
-
-
                 </ul>
 
             </div>
